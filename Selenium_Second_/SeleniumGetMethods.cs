@@ -10,8 +10,12 @@ namespace Selenium_Second_
 {
     class SeleniumGetMethods
     {
-        public static string GetText(string element, PropertyType elementtype)
+        //Get Methods
+        public static string GetText(IWebElement element)
         {
+
+
+            /*
             if (elementtype == PropertyType.Id)
                 return PropertiesCollection.driver.FindElement(By.Id(element)).GetAttribute("value"); //.Text do not work in textboxs so GetAttribute is needed
             if (elementtype == PropertyType.Name)
@@ -19,17 +23,23 @@ namespace Selenium_Second_
             if (elementtype == PropertyType.CssSelector)
                 return PropertiesCollection.driver.FindElement(By.CssSelector(element)).GetAttribute("value");
             else return String.Empty;
+            */
+
+            return element.GetAttribute("value");
 
         }
 
-        public static string GetTextFromDropDown(string element, PropertyType elementtype)
+        public static string GetTextFromDropDown(IWebElement element)
         {
+            /*
             if (elementtype == PropertyType.Id)
                 return new SelectElement(PropertiesCollection.driver.FindElement(By.Id(element))).AllSelectedOptions.SingleOrDefault().Text; //LINQ is used here
             if (elementtype == PropertyType.Name)
                 return new SelectElement(PropertiesCollection.driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
             else return String.Empty;
+            */
 
+            return new SelectElement(element).AllSelectedOptions.SingleOrDefault().Text;
         }
 
         /*public static string clickRadio(string element, string elementtype)

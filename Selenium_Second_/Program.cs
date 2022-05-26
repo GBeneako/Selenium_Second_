@@ -21,8 +21,9 @@ namespace Selenium_Second_
 
         {
             PropertiesCollection.driver = new ChromeDriver(@"I:\G Gilbert's Documents\Selenium\Selenium 101 Location");
+
             
-            string url = "http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login";
+            string url = "https://demosite.executeautomation.com/Login.html";
             PropertiesCollection.driver.Navigate().GoToUrl(url);
             Console.WriteLine("Open URL");
         }
@@ -32,15 +33,16 @@ namespace Selenium_Second_
         ...also add NuGet packages: 1. Nunit.ConsoleRunner, 2. Nunit3TestAdapter and 3. Microsoft.Net.Test.sdk */
         public void ExecuteTest()
         {
-            /*Thread.Sleep(20000);
-            IWebElement element = driver.FindElement(By.Name("q"));
-            element.SendKeys("Kanto");*/
+            /*
+            //Thread.Sleep(20000);
+            //IWebElement element = driver.FindElement(By.Name("q"));
+            //element.SendKeys("Kanto");
 
             Thread.Sleep(20000);
 
             //to select a element please type in "PropertyType" below \/ HERE then next to it, select the element
             //Title
-            SeleniumSetMethods.SelectDropDown("TitleId", "Ms.", PropertyType.Id); //ProprtyType is a strong parameter
+            SeleniumSetMethods.SelectDropDown("TitleId", "Ms.", PropertyType.Id); //PropertyType is a strong parameter
         
             //Initials
             SeleniumSetMethods.EnterText("Initial", "SK", PropertyType.Name);
@@ -64,6 +66,20 @@ namespace Selenium_Second_
 
             SeleniumSetMethods.Click("Save", PropertyType.Name);
             Thread.Sleep(20000);
+            */
+
+            //Login application - This is coming from LoginPageObject from line 29 
+            LoginPageObject pageLogin = new LoginPageObject();
+            EAPageObject PageEA = pageLogin.Login("Samira", "2DaRepMessengerGilbert#_");
+            Thread.Sleep(3000);
+
+            //Initialize the page by calling its reference from EAPageObject.cs
+            //EAPageObject page = new EAPageObject();
+
+            //PageEA.FillUserForm
+            PageEA.FillUserForm("Ms.", "SK", "Samira", "Keys");
+            Thread.Sleep(3000);
+
         }
 
         [TearDown]
