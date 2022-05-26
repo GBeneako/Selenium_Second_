@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Selenium_Second_
 {
-    enum PropertyType
+    enum PropertyType //Here are the type elements to make it easier for us to choose among these...
     {
         Id,
         Name,
@@ -16,7 +16,7 @@ namespace Selenium_Second_
         ClassName
 
     }
-    class PropertiesCollection
+    class PropertiesCollection //Here are the driver instances
     {
 
         //Auto implemented property

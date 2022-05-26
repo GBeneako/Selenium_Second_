@@ -13,12 +13,14 @@ namespace Selenium_Second_
     {
 
         public EAPageObject()
+            //This is to initialize the code below with the ChromeDriver [FindBy...]... public is a constructor
         {
             PageFactory.InitElements(PropertiesCollection.driver, this);
         }
 
         // using SeleniumExtras.PageObjects; is the NuGet package to use here...
         //This is to make it simple to call out the elements and the WebElement / references in Programs.cs
+        //This is the operations for Programs.cs, the initialization of the objects
         [FindsBy(How = How.Id, Using = "TitleId")]
         public IWebElement DropDownTitleID { get; set; }
 
@@ -46,7 +48,7 @@ namespace Selenium_Second_
             RadioBtnName.Click();
             BtnSaveName.Click();
             */
-
+            //Objects to perform, and where these objects are and who they are on the page
             SeleniumSetMethods.SelectDropDown(DropDownTitleID, TitleId);
             SeleniumSetMethods.EnterText(TextInitialName, Initial);
             SeleniumSetMethods.EnterText(FirstNameID, FirstName);
