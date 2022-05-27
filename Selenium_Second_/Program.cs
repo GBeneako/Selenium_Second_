@@ -71,12 +71,12 @@ namespace Selenium_Second_
             //These are the custom methods by the in built method that will activate the operation in EAPageObject
             //Login application - This is coming from LoginPageObject from line 29 
             LoginPageObject pageLogin = new LoginPageObject(); //this is to initialize this
-            EAPageObject PageEA = pageLogin.Login("Samira", "2DaRepMessengerGilbert#_");
+            EAPageObject PageEA = pageLogin.Login("Samira", "2_Gilbert#_");
             Thread.Sleep(3000);
 
             //Initialize the page by calling its reference and methods from EAPageObject.cs instead of writing long codes
             //Here we ae writing the codes as a method, actions I am going to perform from the EAPageObject class itself
-            PageEA.FillUserForm("Ms.", "SK", "Samira", "Keys"); //passing the values here from FillUserForm
+            PageEA.FillUserForm("Ms.", "SK", "Samira", "Mi"); //passing the values here from FillUserForm
             Thread.Sleep(3000);
 
         }
