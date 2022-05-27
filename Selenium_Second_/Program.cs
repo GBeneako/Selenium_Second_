@@ -68,20 +68,6 @@ namespace Selenium_Second_
             Thread.Sleep(20000);
             */
 
-            //Login application - This is coming from LoginPageObject from line 29 
-            LoginPageObject pageLogin = new LoginPageObject();
-            EAPageObject PageEA = pageLogin.Login("Samira", "2DaRepMessengerGilbert#_");
-            Thread.Sleep(3000);
-
-            //Initialize the page by calling its reference from EAPageObject.cs
-            //EAPageObject page = new EAPageObject();
-
-            //PageEA.FillUserForm
-            PageEA.FillUserForm("Ms.", "SK", "Samira", "Keys");
-            Thread.Sleep(3000);
-
-            */
-
             //These are the custom methods by the in built method that will activate the operation in EAPageObject
             //Login application - This is coming from LoginPageObject from line 29 
             LoginPageObject pageLogin = new LoginPageObject(); //this is to initialize this
