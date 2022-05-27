@@ -53,6 +53,7 @@ namespace Selenium_Second_
             SeleniumSetMethods.EnterText(TextInitialName, Initial);
             SeleniumSetMethods.EnterText(FirstNameID, FirstName);
             SeleniumSetMethods.EnterText(SurnameID, Surname);
+            SeleniumSetMethods.Click(RadioBtnName);
             SeleniumSetMethods.Click(BtnSaveName);
             
 
