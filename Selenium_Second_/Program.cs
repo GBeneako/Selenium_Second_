@@ -11,6 +11,7 @@ namespace Selenium_Second_
     {
         // IWebDriver driver = new ChromeDriver(@"I:\G Gilbert's Documents\Selenium\Selenium 101 Location");
         // Not using above because of using Driver from PropertiesCollection.cs
+        // This is the base class
         static void Main(string[] args)
         {
 
@@ -20,17 +21,19 @@ namespace Selenium_Second_
         public void Initialize()
 
         {
+            //reference for our driver from our custom library: PropertiesCollection.cs
             PropertiesCollection.driver = new ChromeDriver(@"I:\G Gilbert's Documents\Selenium\Selenium 101 Location");
-
             
+
+            //navigate to the website
             string url = "https://demosite.executeautomation.com/Login.html";
             PropertiesCollection.driver.Navigate().GoToUrl(url);
             Console.WriteLine("Open URL");
         }
 
-        [Test] //<== This [Test] is to show TestExplorer this is to run the Test Method
+        [Test] //<== This [Test] is a NUnit (Unit Test framework) attribute / test method to show Test Explorer this is to run the Test Method
         /*Add "<GenerateProgramFile>false</GenerateProgramFile>" in the csproj file as the test will not work with them and...
-        ...also add NuGet packages: 1. Nunit.ConsoleRunner, 2. Nunit3TestAdapter and 3. Microsoft.Net.Test.sdk */
+        ...also add / reference: NuGet packages: 1. Nunit.ConsoleRunner, 2. Nunit3TestAdapter and 3. Microsoft.Net.Test.sdk */
         public void ExecuteTest()
         {
             /*
@@ -45,12 +48,12 @@ namespace Selenium_Second_
             SeleniumSetMethods.SelectDropDown("TitleId", "Ms.", PropertyType.Id); //PropertyType is a strong parameter
         
             //Initials
-            SeleniumSetMethods.EnterText("Initial", "SK", PropertyType.Name);
+            SeleniumSetMethods.EnterText("Initial", "SM", PropertyType.Name);
 
             //Name
             SeleniumSetMethods.EnterText("FirstName", "Samira", PropertyType.Id);
 
-            SeleniumSetMethods.EnterText("MiddleName", "Keys", PropertyType.Id);
+            SeleniumSetMethods.EnterText("MiddleName", "Mi", PropertyType.Id);
             
             Console.WriteLine("The results from my title is: " + SeleniumGetMethods.GetText("#TitleId", PropertyType.CssSelector));
             Console.WriteLine("The results from my inital is: " + SeleniumGetMethods.GetText("#Initial", PropertyType.CssSelector));
@@ -77,12 +80,20 @@ namespace Selenium_Second_
 
             //Initialize the page by calling its reference and methods from EAPageObject.cs instead of writing long codes
             //Here we ae writing the codes as a method, actions I am going to perform from the EAPageObject class itself
-            PageEA.FillUserForm("Ms.", "SM", "Samira", "Mi"); //passing the values here from FillUserForm
+            PageEA.FillUserForm("Ms.", "SM", "Samira", "Mi"); //passing the values here from FillUserForm from EaPageObject
             Thread.Sleep(3000);
-
+            Console.WriteLine("Success!");
         }
 
-        [TearDown]
+        [Test]
+        public void Messages()
+        {
+            Console.WriteLine("Success!");
+        }
+        
+
+        //seperated chunk of metods here
+        [TearDown] //[TearDown] and [SetUp] test methods / attributes above also need to be implemented with [Test]
         public void Close()
         {
             PropertiesCollection.driver.Close();

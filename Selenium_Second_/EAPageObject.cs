@@ -18,9 +18,10 @@ namespace Selenium_Second_
             PageFactory.InitElements(PropertiesCollection.driver, this);
         }
 
+        //using a Page Object model to separate element locators with tests (Program.cs) then clearly explain that
         // using SeleniumExtras.PageObjects; is the NuGet package to use here...
         //This is to make it simple to call out the elements and the WebElement / references in Programs.cs
-        //This is the operations for Programs.cs, the initialization of the objects
+        //This is the [elements in] operations for Programs.cs, the initialization of the objects
         [FindsBy(How = How.Id, Using = "TitleId")]
         public IWebElement DropDownTitleID { get; set; }
 

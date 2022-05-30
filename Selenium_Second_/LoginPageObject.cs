@@ -18,7 +18,7 @@ namespace Selenium_Second_
             PageFactory.InitElements(PropertiesCollection.driver, this);
         }
 
-        //Below are the operators for Program.cs
+        //Below are the [elements in] operators for Program.cs
         [FindsBy(How = How.Name, Using = "UserName")]
         public IWebElement txtUserName { get; set; }
 
@@ -29,7 +29,7 @@ namespace Selenium_Second_
         public IWebElement BtnLogin { get; set; }
 
         public EAPageObject Login(string userName, string password)
-            //EAPageObject has to be here or it will not work to return the EAPageObject
+            //EAPageObject has to be here or it will not work to return the EAPageObject (below)
         {
             //UserName
             txtUserName.SendKeys(userName);

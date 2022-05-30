@@ -10,8 +10,8 @@ namespace Selenium_Second_
 {
     class SeleniumSetMethods
     {
-        //Set Methods
-        public static void EnterText(IWebElement element, string value)
+        //Set Methods - set values into them then perform the operations into the DOM (Document Object Model)
+        public static void EnterText(IWebElement element, string value) //We know that the driver is be fully avaliable throughout the test execution in this project so it is placed in PropertiesCollection
         {
             element.SendKeys(value);
 
@@ -33,7 +33,7 @@ namespace Selenium_Second_
                 
                 // SelectElement selectElement = new SelectElement();
 /*
-                if (elementtype == PropertyType.Id)
+                if (elementtype == PropertyType.Id) //<=Id is a hard-coded string value
                     new SelectElement(PropertiesCollection.driver.FindElement(By.Id(element))).SelectByText(value);
                 if (elementtype == PropertyType.Name)
                     new SelectElement(PropertiesCollection.driver.FindElement(By.Name(element))).SelectByText(value);

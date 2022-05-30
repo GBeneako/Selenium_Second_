@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Program.cs~RF425d03.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Chromium.ChromeDriver" Version="2.37.0" />
     <PackageReference Include="DotNetSeleniumExtras.PageObjects" Version="3.11.0" />
     <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.0.1" />
